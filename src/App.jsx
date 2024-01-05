@@ -1,19 +1,21 @@
-import Button from "@mui/material/Button";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import NavBar from "./components/NavBar";
+import { BrowserRouter as Router ,Routes ,Route} from "react-router-dom";
+import Home from "./components/Home";
+import Quiz from "./components/Quiz";
+import Blogs from "./components/Blogs";
+import MonthlyReport from "./components/MonthlyReport";
+import JoinNow from "./components/Joinnow";
 export default function App() {
   return (
-    <Button
-      variant="contained"
-      disableElevation
-      sx={{
-        backgroundColor: "black",
-        padding: "2rem",
-        marginTop: "2rem",
-        color: "white",
-      }}
-    >
-      Contained
-      <ArrowForwardIcon color="white"></ArrowForwardIcon>
-    </Button>
+    <Router>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="blogs" element={<Blogs/>} />
+        <Route path="quiz" element={<Quiz/>} />
+        <Route path="monthlyreport" element={<MonthlyReport/>} />
+        <Route path="joinnow" element={<JoinNow/>} />
+      </Routes>
+    </Router>
   );
 }
